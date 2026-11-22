@@ -1,0 +1,27 @@
+{
+  "name": "@pegora/tsconfig",
+  "version": "0.0.0",
+  "description": "Shared TypeScript configuration",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pegoraio/tsconfig"
+  },
+  "files": [
+    "tsconfig.json"
+  ],
+  "engines": {
+    "node": ">=14.21.3"
+  },
+  "exports": {
+    ".": "./tsconfig.json"
+  },
+  "peerDependencies": {
+    "typescript": "^7.0.0"
+  },
+  "keywords": [
+    "tsconfig",
+    "typescript"
+  ],
+  "license": "Apache-2.0"
+}
