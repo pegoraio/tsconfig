@@ -1,6 +1,6 @@
 {
   "name": "@pegora/tsconfig",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Shared TypeScript configuration",
   "type": "module",
   "repository": {
