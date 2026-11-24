@@ -20,9 +20,9 @@ jobs:
 
       - name: Format
         run: npx -y -p prettier -p @tenedev/prettier-config -- sh -c '
-              NODE_MODULES="$(dirname "$(dirname "$(command -v prettier)")")"
-              CONFIG="$(NODE_PATH="$NODE_MODULES" node -p "require.resolve(\"@tenedev/prettier-config\")")"
-              prettier --write . --config "$CONFIG"
-             '
+          NODE_MODULES="$(dirname "$(dirname "$(command -v prettier)")")"
+          CONFIG="$(NODE_PATH="$NODE_MODULES" node -p "require.resolve(\"@tenedev/prettier-config\")")"
+          prettier --write . --config "$CONFIG"
+          '
 
       - uses: autofix-ci/action@c5b2d67aa2274e7b5a18224e8171550871fc7e4a
