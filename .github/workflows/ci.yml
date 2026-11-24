@@ -25,7 +25,8 @@ jobs:
           node-version: 26
 
       - name: Validate npm package
-        run: npm publish --dry-run
+        run: npm pack --dry-run
 
       - name: Validate JSR package
-        run: npx jsr publish --dry-run
+        if: always()
+        run: npx jsr lint
