@@ -163,6 +163,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      discussions: write
     needs:
       - prepare
       - publish-jsr
@@ -221,3 +222,10 @@ jobs:
           tag_name: v${{ needs.prepare.outputs.version }}
           body: ${{ steps.notes.outputs.body }}
           prerelease: ${{ startsWith(inputs.version, 'pre') }}
+
+      - name: Create Release Discussion
+        uses: abirismyname/create-discussion@v2.1.0
+        with:
+          title: "🚀 @pegora/tsconfig v${{ needs.prepare.outputs.version }} is now available!"
+          body: ${{ steps.notes.outputs.body }}
+          category-name: Announcements
