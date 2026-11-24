@@ -7,10 +7,6 @@
     ".": "./tsconfig.json"
   },
   "publish": {
-    "include": [
-      "tsconfig.json",
-      "README.md",
-      "LICENSE"
-    ]
+    "include": ["tsconfig.json", "README.md", "LICENSE"]
   }
 }
