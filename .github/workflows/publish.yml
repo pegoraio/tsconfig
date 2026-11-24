@@ -173,7 +173,7 @@ jobs:
           RELEASE_TAG="v${{ needs.prepare.outputs.version }}"
           RELEASE_COMMIT="HEAD^"
           REPO_URL="https://github.com/${{ github.repository }}"
-          
+
           if [[ "$VERSION" == pre* ]]; then
             PREV_TAG=$(git describe --tags --abbrev=0 "$RELEASE_COMMIT" 2>/dev/null || true)
           else
@@ -184,7 +184,7 @@ jobs:
                 || true
             )
           fi
-          
+
           {
             echo "body<<EOF"
             echo "## Changes"
