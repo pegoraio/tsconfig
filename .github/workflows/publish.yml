@@ -114,7 +114,7 @@ jobs:
       id-token: write
     environment:
       name: jsr
-      url: https://jsr.io/@pegora/tsconfig/publish
+      url: https://jsr.io/@pegora/tsconfig
     needs: prepare
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
