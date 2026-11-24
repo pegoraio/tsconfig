@@ -32,14 +32,12 @@ concurrency:
   group: publish-${{ github.ref }}
   cancel-in-progress: false
 
-permissions:
-  contents: write
-  id-token: write
-
 jobs:
   prepare:
     runs-on: ubuntu-latest
     if: github.ref_name == 'main'
+    permissions:
+      contents: write
     outputs:
       version: ${{ steps.version.outputs.version }}
       tag: ${{ steps.bump.outputs.tag }}
@@ -77,7 +75,7 @@ jobs:
               --no-git-tag-version
           fi
 
-          echo "TAG=$TAG" >> "$GITHUB_ENV"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
 
       - name: Sync JSR version
         run: |
@@ -113,6 +111,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      id-token: write
     environment:
       name: jsr
       url: https://jsr.io/@pegora/tsconfig/publish
@@ -134,6 +133,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      id-token: write
     environment:
       name: npm
       url: https://www.npmjs.com/package/@pegora/tsconfig
@@ -155,8 +155,11 @@ jobs:
   release:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-    needs: prepare
+      contents: write
+    needs:
+      - prepare
+      - publish-jsr
+      - publish-npm
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
