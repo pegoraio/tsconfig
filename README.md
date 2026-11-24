@@ -5,6 +5,9 @@
 [![Publish](https://github.com/pegoraio/tsconfig/actions/workflows/publish.yml/badge.svg)](https://github.com/pegoraio/tsconfig/actions/workflows/publish.yml)
 [![npm version](https://img.shields.io/npm/v/@pegora/tsconfig.svg?logo=npm&color=brightgreen)](https://www.npmjs.com/package/@pegora/tsconfig)
 [![Downloads](https://img.shields.io/npm/dt/@pegora/tsconfig?logo=npm)](https://www.npmjs.com/package/@pegora/tsconfig)
+[![JSR](https://jsr.io/badges/@pegora/tsconfig)](https://jsr.io/@pegora/tsconfig)
+[![JSR Total Downloads](https://jsr.io/badges/@pegora/tsconfig/total-downloads)](https://jsr.io/@pegora/tsconfig)
+[![JSR Score](https://jsr.io/badges/@pegora/tsconfig/score)](https://jsr.io/@pegora/tsconfig)
 
 ## Install
 
