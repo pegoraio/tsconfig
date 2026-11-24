@@ -1,0 +1,28 @@
+name: autofix.ci
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  autofix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 26
+
+      - name: Format
+        run: npx -y -p prettier -p @tenedev/prettier-config -- sh -c '
+          NODE_MODULES="$(dirname "$(dirname "$(command -v prettier)")")"
+          CONFIG="$(NODE_PATH="$NODE_MODULES" node -p "require.resolve(\"@tenedev/prettier-config\")")"
+          prettier --write . --config "$CONFIG"
+          '
+
+      - uses: autofix-ci/action@c5b2d67aa2274e7b5a18224e8171550871fc7e4a
