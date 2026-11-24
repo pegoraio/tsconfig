@@ -87,6 +87,13 @@ jobs:
             fs.writeFileSync('jsr.json', JSON.stringify(jsr, null, 2) + '\n');
           "
 
+      - name: Format
+        run: npx -y -p prettier -p @tenedev/prettier-config -- sh -c '
+          NODE_MODULES="$(dirname "$(dirname "$(command -v prettier)")")"
+          CONFIG="$(NODE_PATH="$NODE_MODULES" node -p "require.resolve(\"@tenedev/prettier-config\")")"
+          prettier --write . --config "$CONFIG"
+          '
+
       - name: Read version
         id: version
         run: |
